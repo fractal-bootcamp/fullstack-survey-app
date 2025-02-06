@@ -22,7 +22,7 @@ export async function action({ params, request }: Route.ActionArgs) {
     const answer = formData.get("answer");
 
     await apiClient.surveys({ id: params.id }).answer.post({
-        answer: formData.get("answer") as string
+        answer: answer as string
     });
 
     return redirect(`/surveys/${params.id}/results`);
@@ -30,6 +30,7 @@ export async function action({ params, request }: Route.ActionArgs) {
 
 export default function Survey() {
     const survey = useLoaderData<typeof loader>();
+
 
     return (
         <main className="p-4">
