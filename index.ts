@@ -61,7 +61,7 @@ const app = new Elysia()
         })
     })
     .post('/form', ({ body }) => body)
-    .listen(3000)
+    .listen(process.env.PORT ?? 3000)
 
 console.log(`Server is running on http://localhost:3000`)
 

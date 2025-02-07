@@ -2,6 +2,10 @@
   "name": "surveys2",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run --watch index.ts",
+    "build": "bun build --compile --minify-whitespace --minify-syntax --target bun --outfile server ./index.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
