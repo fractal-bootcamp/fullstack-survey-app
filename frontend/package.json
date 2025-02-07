@@ -9,6 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@elysiajs/eden": "^1.2.0",
     "@netlify/vite-plugin-react-router": "^1.0.0",
     "@react-router/node": "^7.1.5",
     "@react-router/serve": "^7.1.5",
