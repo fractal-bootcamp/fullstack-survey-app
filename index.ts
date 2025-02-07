@@ -63,6 +63,6 @@ const app = new Elysia()
     .post('/form', ({ body }) => body)
     .listen(process.env.PORT ?? 3000)
 
-console.log(`Server is running on http://localhost:3000`)
+console.log(`Server is running on http://localhost:${process.env.PORT ?? 3000}`)
 
 export type ApiApp = typeof app
