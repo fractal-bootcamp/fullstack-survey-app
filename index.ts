@@ -2,6 +2,9 @@ import { Elysia, t } from 'elysia'
 import swagger from '@elysiajs/swagger'
 import cors from '@elysiajs/cors'
 import { answerSurvey, createSurvey, getAllSurveys, getSurveyById, getSurveyResults, type Survey } from './surveys';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 const app = new Elysia()
     .use(swagger())
@@ -59,6 +62,10 @@ const app = new Elysia()
         params: t.Object({
             id: t.String()
         })
+    })
+    .get('/surveysdb', async () => {
+        const surveys = await prisma.survey.findMany();
+        return surveys;
     })
     .post('/form', ({ body }) => body)
     .listen(process.env.PORT ?? 3000)
